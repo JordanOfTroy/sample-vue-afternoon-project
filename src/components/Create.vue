@@ -16,10 +16,11 @@
             v-model='health'
             label="Health Value"
             required
+            type='number'
             ></v-text-field>
             <v-btn
             :disabled="!valid"
-            type='number'
+            type='submit'
             >
             submit
             </v-btn>
@@ -45,7 +46,7 @@ export default {
             this.health = null;
         },
         submit() {
-            this.addBot({name: this.name, attack: this.attack, health: this.defense});
+            this.addBot({name: this.name, attack: this.attack, health: this.health});
             this.$emit('switchTab')
         }
     },
