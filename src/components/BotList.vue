@@ -53,14 +53,16 @@ export default {
       let firstAttack = Math.floor(Math.random() * 2 + 1);
       let firstAttacker = firstAttack === 1 ? this.one : this.two;
       let secondAttacker = firstAttack === 2 ? this.one : this.two;
+      let firstHealth = firstAttacker.health;
+      let secondHealth = secondAttacker.health
       while (true) {
-        secondAttacker.health -= firstAttacker.attack;
-        if (secondAttacker.health <= 0) {
+        secondHealth -= firstAttacker.attack;
+        if (secondHealth <= 0) {
           alert(`${firstAttacker.name} wins!`);
           return this.clearSelections();
         } else {
-          firstAttacker.health -= secondAttacker.attack;
-          if (firstAttacker.health <= 0) {
+          firstHealth -= secondAttacker.attack;
+          if (firstHealth <= 0) {
             alert(`${secondAttacker.name} wins!`);
             return this.clearSelections();
           }
